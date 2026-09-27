@@ -38,7 +38,7 @@ const catalogo = [
         tipo: "filme",
         ano: 2021,
         generos: ["nostalgia", "emoção", "aventura", "ação"],
-        nota: 9.5,
+        nota: 0,
         assistido: false
     },
 
@@ -48,7 +48,7 @@ const catalogo = [
         tipo: "serie",
         ano: 2022,
         generos: ["ação", "mistério", "aventura", "drama"],
-        nota: 8.5,
+        nota: 0,
         assistido: false
     },
 
@@ -83,9 +83,7 @@ if (catalogo[2].generos.length >= 2) {
     console.log("O terceiro item não possui um segundo gênero.");
 }
 
-// ==========================================
 // B.3.A - LISTAGEM COM forEach
-// ==========================================
 
 console.log("===== LISTA DE TÍTULOS =====");
 
@@ -93,9 +91,8 @@ catalogo.forEach(function(item) {
     console.log(`- [${item.tipo}] ${item.titulo} (${item.ano})`);
 });
 
-// ==========================================
 // B.3.B - TRANSFORMAÇÃO COM map
-// ==========================================
+
 
 const titulosEmCaixaAlta = catalogo.map(function(item) {
     return item.titulo.toUpperCase();
@@ -104,9 +101,7 @@ const titulosEmCaixaAlta = catalogo.map(function(item) {
 console.log("===== TÍTULOS EM CAIXA ALTA =====");
 console.log(titulosEmCaixaAlta);
 
-// ==========================================
 // B.3.C - SELEÇÃO COM filter
-// ==========================================
 
 const naoAssistidos = catalogo.filter(function(item) {
     return item.assistido === false;
@@ -120,9 +115,8 @@ console.log(
     naoAssistidos.length
 );
 
-// ==========================================
 // B.3.D - BUSCA COM find
-// ==========================================
+
 
 const primeiroNotaAlta = catalogo.find(function(item) {
     return item.nota >= 9;
@@ -136,9 +130,7 @@ if (primeiroNotaAlta) {
     console.log("Nenhum item possui nota maior ou igual a 9.");
 }
 
-// ==========================================
 // B.3.E - AGREGAÇÃO COM reduce
-// ==========================================
 
 const somaNotas = catalogo.reduce((acumulador, item) => {
     return acumulador + item.nota;
@@ -167,9 +159,7 @@ console.log("===== MÉDIAS =====");
 console.log("Média geral:", mediaGeral.toFixed(2));
 console.log("Média dos assistidos:", mediaAssistidos.toFixed(2));
 
-// ==========================================
-// B.3.E - AGREGAÇÃO COM reduce
-// ==========================================
+// B.3.E - QUANTIDADES
 
 const quantidadePorTipo = catalogo.reduce((acumulador, item) => {
     if (item.tipo === "filme") {
@@ -187,9 +177,7 @@ const quantidadePorTipo = catalogo.reduce((acumulador, item) => {
 console.log("===== QUANTIDADE POR TIPO =====");
 console.log(quantidadePorTipo);
 
-// ==========================================
-// B.3.F - CHECAGENS COM some E every
-// ==========================================
+// B.3.F - RESUMO
 
 const existeAntesDe2000 = catalogo.some(function(item) {
     return item.ano < 2000;
@@ -210,9 +198,8 @@ console.log(
     todosTemGenero
 );
 
-// ==========================================
 // B.4 - SAÍDA NA TELA (DOM)
-// ==========================================
+
 
 // Cria uma cópia do catálogo para o ranking
 const ranking = [...catalogo];
